@@ -32,7 +32,7 @@ const DinnerModel = function () {
 	} 
 
   this.getTotalDishPrice = function(dish) {
-		return (Math.round(dish.pricePerServing  * this.getNumberOfGuests()));
+		return (Math.round(dish.pricePerServing/dish.servings  * this.getNumberOfGuests()));
 	}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
@@ -96,8 +96,9 @@ const DinnerModel = function () {
 
   this.getAllDishes = function (query, type) {
     const url = 
-      'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?' +
-      'type=' + type +
+      //'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?' +
+      'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=false&number=24&type='
+      + type +
       '&query=' + query;
     
     return fetch(url, httpOptions)

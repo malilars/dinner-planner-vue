@@ -5,7 +5,7 @@
     <div class="form-group">
       <label>Number of People</label>
       <input :value="numberOfGuests" @input="onDidChangeNumberOfGuests" 
-        @change="onDidChangeNumberOfGuests" class="form-control" type="number"/>
+        @change="onDidChangeNumberOfGuests" class="form-control" type="number" min="1"/>
     </div>
     <table class="table">
       <thead>
@@ -32,7 +32,6 @@
     </router-link>
     <p>
       <br/>
-      Total number of guests: {{ numberOfGuests }}
     </p>
   </div>
 </template>

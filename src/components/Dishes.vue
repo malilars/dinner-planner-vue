@@ -28,9 +28,10 @@
     </div>
 
     <h3>Dishes</h3>
-    
-    <em v-if='status === "LOADING"'>Loading...</em>
-    
+
+    <div v-if='status === "LOADING"' class="col-md-2 col-md-offset-5">
+        <img src="images/load.gif" class ="img-responsive">
+    </div>
     <b v-else-if='status === "ERROR"'>Failed to load data, please try again</b>
     
     <div v-else class="row">
