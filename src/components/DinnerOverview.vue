@@ -23,7 +23,7 @@
                 </div>
                 <div class="col-md-4">
                     <h3>Total</h3>
-                    <p>{{totalPrice}}SEK</p>
+                    <p>{{totalPrice}} SEK</p>
                 </div>
             </div>
 

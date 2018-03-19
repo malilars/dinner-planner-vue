@@ -17,6 +17,8 @@
                 <option value="appetizer">Appetizer</option>
                 <option value="fingerfood">Fingerfood</option>
                 <option value="lunch">Lunch</option>
+                <option value="salad">Salad</option>
+                <option value="side dish">Side Dish</option>
                 <option value="dinner">Dinner</option>
             </select>
           </div>
@@ -56,6 +58,7 @@
   import { modelInstance } from "../data/DinnerModel";
 
   export default {
+
     // this methods is called by Vue lifecycle when the 
     // component is actually shown to the user (mounted to DOM)
     // that's a good place to call the API and get the data

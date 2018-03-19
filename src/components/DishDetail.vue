@@ -70,6 +70,11 @@
       //Add ourselves as an observer
       this.model.addObserver(this);
     },
+    // this is called when component is removed destroyed
+    // good place to remove observer
+    beforeDestroy() {
+      this.model.removeObserver(this)
+    },
     data() {
       return {
         status: 'LOADING',
