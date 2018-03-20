@@ -4,7 +4,11 @@
       <div class="col-md-3">
         <sidebar :model="this.model" />
       </div>
-      <div class="col-md-9">
+      <div v-if='status === "LOADING"' class="col-md-2 col-md-offset-5">
+                <img src="images/load.gif">
+              </div>
+              <b v-else-if='status === "ERROR"'>Failed to load data, please try again</b>
+      <div class="col-md-9" v-else-if ='status === "LOADED"'>
         <div id="dish-details">
           <div class="row">
             <div class="col-md-6">
@@ -12,10 +16,7 @@
               <img :src="dish.image" class="img img-responsive" />
               <h4>Preperations</h4>
 
-              <div v-if='status === "LOADING"' class="col-md-2 col-md-offset-5">
-                <img src="images/load.gif">
-              </div>
-              <b v-else-if='status === "ERROR"'>Failed to load data, please try again</b>
+              
               <p>{{ dish.instructions }}</p>
               <hr/>
               <router-link to="/search" class="btn btn-info">
@@ -95,9 +96,12 @@
       this.status = 'LOADING';
       //Get the this with the id from the route
       this.model.getDish(this.$route.params.id).then(data => {
-        
+        if (data === undefined) {
+          this.status = 'ERROR'
+
+      }else {
         this.status = 'LOADED'
-        this.dish = data;
+        this.dish = data;}
       }).catch(() => {
           this.status = 'ERROR'
         });

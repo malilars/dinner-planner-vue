@@ -25,7 +25,7 @@ const DinnerModel = function () {
     {
       return [];
     }
-
+    //convert text into a JavaScript object
     return JSON.parse(
       menu
     );
@@ -74,7 +74,7 @@ const DinnerModel = function () {
       return false;
     }
 
-    //
+    //add the dish to selected dishes
     selectedDishes.push(dish)
 
     //Store it in local storage
